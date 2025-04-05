@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Priority;
 use App\Models\Ticket;
 use Illuminate\Http\Request;
@@ -11,7 +12,8 @@ class TicketController extends Controller
     public function create()
     {
         return view('ticket.create', [
-            'priorities' => Priority::all()
+            'priorities' => Priority::all(),
+            'categories' => Category::all(),
         ]);
     }
     public function store(Request $request)
