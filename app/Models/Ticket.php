@@ -8,6 +8,12 @@ class Ticket extends Model
 {
     protected $fillable = [
         'problem_since',
-        'description'
+        'description',
+        'priority_id'
     ];
+
+    public function priority()
+    {
+        return $this->belongsTo(Priority::class);
+    }
 }

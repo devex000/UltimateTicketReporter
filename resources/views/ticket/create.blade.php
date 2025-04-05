@@ -23,6 +23,15 @@
             <textarea name="description" id="description" cols="30" rows="10"></textarea>
         </div>
         <div>
+            <label for="priority_id">Priority</label>
+            <br>
+            <select name="priority_id" id="priority_id">
+                @foreach ($priorities as $priority)
+                    <option value="{{ $priority->id }}">{{ $priority->name }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div>
             <button type="submit">Submit</button>
         </div>
 

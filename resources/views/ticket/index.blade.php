@@ -14,6 +14,7 @@
             <th>Problem since</th>
             <th>Ticket create date</th>
             <th>Ticket update date</th>
+            <th>Priority</th>
             <th>Description</th>
         </tr>
         @foreach ($tickets as $ticket)
@@ -22,6 +23,7 @@
                 <td>{{ $ticket->problem_since }}</td>
                 <td>{{ $ticket->created_at }}</td>
                 <td>{{ $ticket->updated_at }}</td>
+                <td>{{ $ticket->priority->name }}</td>
                 <td>{{ $ticket->description }}</td>
             </tr>
         @endforeach
