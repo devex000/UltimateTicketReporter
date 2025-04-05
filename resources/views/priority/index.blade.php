@@ -26,6 +26,9 @@
             <label for="name">Name</label>
             <br>
             <input type="text" name="name" id="name">
+            <label for="description">Description</label>
+            <br>
+            <input type="text" name="description" id="description">
         </div>
         <div>
             <button type="submit">Submit</button>

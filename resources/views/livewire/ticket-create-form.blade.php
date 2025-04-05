@@ -26,6 +26,7 @@
                         @endforeach
                     </select>
                 </td>
+                <td> {{$priority_description}} </td>
             </tr>
             <tr>
                 <td>
@@ -39,6 +40,7 @@
                         @endforeach
                     </select>
                 </td>
+                <td> {{$category_description}}</td>
             </tr>
             <tr>
                 <td colspan="2">
@@ -47,10 +49,6 @@
                 </td>
             </tr>
         </table>
-
-        <hr>
-        <p>Info</p>
-        <p style="font-style: italic; color: #555;">Category info: {{$category_description}}</p>
 
         <div>
             <button type="submit">Submit</button>

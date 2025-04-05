@@ -20,6 +20,7 @@ class TicketCreateForm extends Component
     //
 
     public $category_description = "";
+    public $priority_description = "";
 
 
     public function mount()
@@ -43,6 +44,12 @@ class TicketCreateForm extends Component
     {
         $category = Category::find($value);
         $this->category_description = $category?->description ?? '';
+    }
+
+    public function updatedPriorityId($value)
+    {
+        $priority = Priority::find($value);
+        $this->priority_description = $priority?->description ?? '';
     }
 
     public function render()
