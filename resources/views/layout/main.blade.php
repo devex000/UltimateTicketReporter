@@ -5,23 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    @livewireStyles
+
 </head>
 
 <body>
-    <table>
-        <tr>
-            <td>
-                @include('layout.navigation')
-            </td>
-            <td>
-                <div>
-                    @yield('content')
-                </div>
-            </td>
-        </tr>
-    </table>
+    @include('layout.navigation')
+    <div>
+        @yield('content')
+    </div>
+    @livewireScripts
+
 </body>
 
-@yield('additional-js')
 
 </html>
