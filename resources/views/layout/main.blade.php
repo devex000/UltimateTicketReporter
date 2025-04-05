@@ -22,4 +22,6 @@
     </table>
 </body>
 
+@yield('additional-js')
+
 </html>

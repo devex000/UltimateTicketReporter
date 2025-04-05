@@ -27,13 +27,37 @@
             <br>
             <select name="category_id" id="category_id">
                 @foreach ($categories as $category)
-                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    <option value="{{ $category->id }}" data-description="{{ $category->description }}">
+                        {{ $category->name }}
+                    </option>
                 @endforeach
             </select>
         </div>
         <div>
             <button type="submit">Submit</button>
         </div>
-
     </form>
+    <hr>
+    <p>Info</p>
+    <p id="category_description" style="font-style: italic; color: #555;"></p>
+@endsection
+
+@section('additional-js')
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const select = document.getElementById('category_id');
+            const descriptionSpan = document.getElementById('category_description');
+
+            function updateDescription() {
+                const selectedOption = select.options[select.selectedIndex];
+                const description = selectedOption.getAttribute('data-description');
+                descriptionSpan.textContent = description || '';
+            }
+
+            updateDescription();
+
+            select.addEventListener('change', updateDescription);
+        });
+    </script>
+
 @endsection
