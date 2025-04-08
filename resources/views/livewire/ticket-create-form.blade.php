@@ -43,6 +43,20 @@
                 <td> {{$category_description}}</td>
             </tr>
             <tr>
+                <td>
+                    <label for="subcategory_id">Subcategory</label>
+                </td>
+                <td>
+                    <select wire:model.live="subcategory_id" id="subcategory_id">
+                        <option value="">-- select subcategory --</option>
+                        @foreach ($subcategories as $subcategory)
+                            <option value="{{ $subcategory->id }}">{{ $subcategory->name }}</option>
+                        @endforeach
+                    </select>
+                </td>
+                <td> {{$subcategory_description}} </td>
+            </tr>
+            <tr>
                 <td colspan="2">
                     <label for="description">Description</label><br>
                     <textarea wire:model="description" id="description" cols="50" rows="10"></textarea>

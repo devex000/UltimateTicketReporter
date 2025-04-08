@@ -8,6 +8,7 @@
             <th>Ticket update date</th>
             <th>Priority</th>
             <th>Category</th>
+            <th>Subcategory</th>
             <th>Description</th>
         </tr>
         @foreach ($tickets as $ticket)
@@ -18,6 +19,7 @@
                 <td>{{ $ticket->updated_at }}</td>
                 <td>{{ $ticket->priority->name }}</td>
                 <td>{{ $ticket->category->name }}</td>
+                <td>{{ $ticket->subcategory->name ?? '' }}</td>
                 <td>{{ $ticket->description }}</td>
             </tr>
         @endforeach

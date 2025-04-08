@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PriorityController;
+use App\Http\Controllers\SubcategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TicketController;
 
@@ -23,3 +24,7 @@ Route::get('/category/index', [CategoryController::class, 'index'])->name('categ
 Route::post('/category/store', [CategoryController::class, 'store'])->name('category.store');
 Route::delete('/category/delete/{category}', [CategoryController::class, 'delete'])->name('category.delete');
 Route::put('/category/update/{category}', [CategoryController::class, 'update'])->name('category.update');
+
+Route::post('/subcategory/store', [SubcategoryController::class, 'store'])->name('subcategory.store');
+Route::delete('/subcategory/delete/{subcategory}', [SubcategoryController::class, 'delete'])->name('subcategory.delete');
+Route::put('/subcategory/update/{subcategory}', [SubcategoryController::class, 'update'])->name('subcategory.update');
