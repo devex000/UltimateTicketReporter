@@ -12,6 +12,7 @@ class Ticket extends Model
         'priority_id',
         'category_id',
         'subcategory_id',
+        'topic_id',
     ];
 
     public function priority()
@@ -27,5 +28,9 @@ class Ticket extends Model
     public function subcategory()
     {
         return $this->belongsTo(Subcategory::class);
+    }
+    public function topic()
+    {
+        return $this->belongsTo(Topic::class);
     }
 }

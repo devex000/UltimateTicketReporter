@@ -57,6 +57,20 @@
                 <td> {{$subcategory_description}} </td>
             </tr>
             <tr>
+                <td>
+                    <label for="topic_id">Topic</label>
+                </td>
+                <td>
+                    <select wire:model.live="topic_id" id="topic_id">
+                        <option value="">-- select topic --</option>
+                        @foreach ($topics as $topic)
+                            <option value="{{ $topic->id }}">{{ $topic->name }}</option>
+                        @endforeach
+                    </select>
+                </td>
+                <td> {{$topic_description}} </td>
+            </tr>
+            <tr>
                 <td colspan="2">
                     <label for="description">Description</label><br>
                     <textarea wire:model="description" id="description" cols="50" rows="10"></textarea>

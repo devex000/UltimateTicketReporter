@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Priority;
 use App\Models\Subcategory;
 use App\Models\Ticket;
+use App\Models\Topic;
 use Livewire\Component;
 use Log;
 
@@ -16,16 +17,18 @@ class TicketCreateForm extends Component
     public $priority_id = "";
     public $category_id = "";
     public $subcategory_id = "";
+    public $topic_id = "";
     public $priorities = [];
     public $categories = [];
     public $subcategories = [];
+    public $topics = [];
 
     //
 
     public $category_description = "";
     public $priority_description = "";
     public $subcategory_description = "";
-
+    public $topic_description = "";
 
     public function mount()
     {
@@ -40,7 +43,8 @@ class TicketCreateForm extends Component
             'description' => $this->description,
             'priority_id' => $this->priority_id,
             'category_id' => $this->category_id,
-            'subcategory_id' => $this->subcategory_id
+            'subcategory_id' => $this->subcategory_id,
+            'topic_id' => $this->topic_id
 
         ]);
         return redirect(route('ticket.index'));
@@ -62,6 +66,12 @@ class TicketCreateForm extends Component
     {
         $subcategory = Subcategory::find($value);
         $this->subcategory_description = $subcategory->description ?? '';
+        $this->topics = $subcategory->topics ?? [];
+    }
+    public function updatedTopicId($value)
+    {
+        $topic = Topic::find($value);
+        $this->topic_description = $topic->description ?? '';
     }
 
 
