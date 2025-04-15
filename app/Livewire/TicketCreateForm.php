@@ -53,8 +53,15 @@ class TicketCreateForm extends Component
     public function updatedCategoryId($value)
     {
         $category = Category::find($value);
-        $this->category_description = $category?->description ?? '';
+        $this->category_description = $category->description ?? '';
+        $this->subcategory_description = $subcategory->description ?? '';
+        $this->topic_description = $topic->description ?? '';
+
         $this->subcategories = $category->subcategories ?? [];
+        $this->subcategory_id = "";
+
+        $this->topics = $category->topics ?? [];
+        $this->topic_id = "";
     }
 
     public function updatedPriorityId($value)
@@ -66,7 +73,10 @@ class TicketCreateForm extends Component
     {
         $subcategory = Subcategory::find($value);
         $this->subcategory_description = $subcategory->description ?? '';
+        $this->topic_description = $topic->description ?? '';
+
         $this->topics = $subcategory->topics ?? [];
+        $this->topic_id = "";
     }
     public function updatedTopicId($value)
     {
@@ -79,4 +89,5 @@ class TicketCreateForm extends Component
     {
         return view('livewire.ticket-create-form');
     }
+
 }
