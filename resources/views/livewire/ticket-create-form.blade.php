@@ -8,28 +8,6 @@
         <table>
             <tr>
                 <td>
-                    <label for="problem_since">Problem since</label>
-                </td>
-                <td>
-                    <input type="datetime-local" wire:model="problem_since" id="problem_since">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="priority_id">Priority</label>
-                </td>
-                <td>
-                    <select wire:model.live="priority_id" id="priority_id">
-                        <option value="">-- select priority --</option>
-                        @foreach ($priorities as $priority)
-                            <option value="{{ $priority->id }}">{{ $priority->name }}</option>
-                        @endforeach
-                    </select>
-                </td>
-                <td> {{$priority_description}} </td>
-            </tr>
-            <tr>
-                <td>
                     <label for="category_id">Category</label>
                 </td>
                 <td>
@@ -68,8 +46,42 @@
                         @endforeach
                     </select>
                 </td>
-                <td> {{$topic_description}} </td>
+                <td> 
+                    {{$topic_description}} 
+                </td>
             </tr>
+            <tr>
+                <td colspan="2">
+                    <hr>
+                </td>
+            </tr>            
+            <tr>
+                <td>
+                    <label for="priority_id">Priority</label>
+                </td>
+                <td>
+                    <select wire:model.live="priority_id" id="priority_id">
+                        <option value="">-- select priority --</option>
+                        @foreach ($priorities as $priority)
+                            <option value="{{ $priority->id }}">{{ $priority->name }}</option>
+                        @endforeach
+                    </select>
+                </td>
+                <td> {{$priority_description}} </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="problem_since">Problem since</label>
+                </td>
+                <td>
+                    <input type="datetime-local" wire:model="problem_since" id="problem_since">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <hr>
+                </td>
+            </tr>  
             <tr>
                 <td colspan="2">
                     <label for="description">Description</label><br>
