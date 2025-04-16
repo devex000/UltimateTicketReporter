@@ -78,6 +78,20 @@
                 </td>
             </tr>
             <tr>
+                <td>Status</td>
+                <td>
+                    <select wire:model.live="status_id" id="status_id">
+                        @foreach ($statuses as $status)    
+                            @if($status->new)
+                                <option value="{{ $status->id }}">&#x2606; {{ $status->name }}</option>
+                                @else 
+                                <option value="{{ $status->id }}">{{ $status->name }}</option>
+                            @endif
+                        @endforeach
+                    </select>
+                </td>                
+            </tr>
+            <tr>
                 <td colspan="2">
                     <hr>
                 </td>

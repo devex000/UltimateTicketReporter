@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Category;
 use App\Models\Priority;
+use App\Models\Status;
 use App\Models\Subcategory;
 use App\Models\Ticket;
 use App\Models\Topic;
@@ -18,10 +19,12 @@ class TicketCreateForm extends Component
     public $category_id = "";
     public $subcategory_id = "";
     public $topic_id = "";
+    public $status_id = "";
     public $priorities = [];
     public $categories = [];
     public $subcategories = [];
     public $topics = [];
+    public $statuses = [];
 
     //
 
@@ -34,6 +37,8 @@ class TicketCreateForm extends Component
     {
         $this->priorities = Priority::all();
         $this->categories = Category::all();
+        $this->statuses = Status::all();
+        $this->status_id = Status::where("new", 1)->first()->id;
     }
 
     public function submit()
@@ -44,7 +49,8 @@ class TicketCreateForm extends Component
             'priority_id' => $this->priority_id,
             'category_id' => $this->category_id,
             'subcategory_id' => $this->subcategory_id,
-            'topic_id' => $this->topic_id
+            'topic_id' => $this->topic_id,
+            'status_id' => $this->status_id,
 
         ]);
         return redirect(route('ticket.index'));
