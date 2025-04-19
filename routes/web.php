@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PriorityController;
+use App\Http\Controllers\SnapshotController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\SubcategoryController;
 use App\Http\Controllers\TopicController;
@@ -35,8 +36,14 @@ Route::post('/topic/store', [TopicController::class, 'store'])->name('topic.stor
 Route::delete('/topic/delete/{topic}', [TopicController::class, 'delete '])->name('topic.delete');
 Route::put('/topic/update/{topic}', [TopicController::class, 'update'])->name('topic.update');
 
-Route::get('/status/index', [StatusController::class,'index'])->name('status.index');
-Route::post('/status/store', [StatusController::class,'store'])->name('status.store');
-Route::put('/status/update/{status}', [StatusController::class,'update'])->name('status.update');
-Route::delete('/status/delete/{status}', [StatusController::class,'delete'])->name('status.delete');
-Route::put('/status/set_as_new/{status}', [StatusController::class,'set_as_new'])->name('status.set_as_new');
+Route::get('/status/index', [StatusController::class, 'index'])->name('status.index');
+Route::post('/status/store', [StatusController::class, 'store'])->name('status.store');
+Route::put('/status/update/{status}', [StatusController::class, 'update'])->name('status.update');
+Route::delete('/status/delete/{status}', [StatusController::class, 'delete'])->name('status.delete');
+Route::put('/status/set_as_new/{status}', [StatusController::class, 'set_as_new'])->name('status.set_as_new');
+
+Route::get('/snapshot/export', [SnapshotController::class, 'export'])->name('snapshot.export');
+Route::post('/snapshot/export_gen', [SnapshotController::class, 'export_gen'])->name('snapshot.export_gen');
+Route::get('/snapshot/import', [SnapshotController::class, 'import'])->name('snapshot.import');
+Route::post('/snapshot/import_gen', [SnapshotController::class, 'import_gen'])->name('snapshot.import_gen');
+
