@@ -8,6 +8,7 @@ use App\Models\Status;
 use App\Models\Subcategory;
 use App\Models\Ticket;
 use App\Models\Topic;
+use Carbon\Carbon;
 use Livewire\Component;
 use Log;
 
@@ -88,6 +89,16 @@ class TicketCreateForm extends Component
     {
         $topic = Topic::find($value);
         $this->topic_description = $topic->description ?? '';
+    }
+
+    public function setProblemSinceToday()
+    {
+        $this->problem_since = (new \DateTime('today'))->format('Y-m-d\TH:i:s');
+    }
+
+    public function getProblemSinceNow()
+    {
+        $this->problem_since = (new \DateTime())->format('Y-m-d\TH:i:s');
     }
 
 

@@ -75,6 +75,9 @@
                 </td>
                 <td>
                     <input type="datetime-local" wire:model="problem_since" id="problem_since">
+                    <input type="button" value="Today" wire:click="setProblemSinceToday">
+                    <input type="button" value="Now" wire:click="getProblemSinceNow">
+
                 </td>
             </tr>
             <tr>
