@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::table('tickets', function (Blueprint $table) {
             $table->foreignId('status_id')->constrained('statuses')->onDelete('cascade');
-
         });
     }
 
